@@ -1,117 +1,101 @@
-osTicket
-========
-<a href="https://osticket.com"><img height="80px" width="80px" src="images/favicon.png"
-align="left" hspace="10" vspace="6"></a>
-
-**osTicket** is a widely-used open source support ticket system. It seamlessly
-integrates inquiries created via email, phone and web-based forms into a
-simple easy-to-use multi-user web interface. Manage, organize and archive
-all your support requests and responses in one place while providing your
-customers with accountability and responsiveness they deserve.
-
-How osTicket works for you
---------------------------
-  1. Users create tickets via your website, email, or phone
-  1. Incoming tickets are saved and assigned to agents
-  1. Agents help your users resolve their issues
-
-osTicket is an attractive alternative to higher-cost and complex customer
-support systems; simple, lightweight, reliable, open source, web-based and
-easy to setup and use. The best part is, it's completely free.
-
-Requirements
-------------
-  * HTTP server running Microsoft® IIS or Apache
-  * PHP version 8.1 - 8.2 (8.2 recommended)
-  * mysqli extension for PHP
-  * MySQL database version 5.5 (or greater)
-
-### Recommendations
-  * fileinfo, gd, gettext, imap, intl, json, mbstring, Zend OPcache, phar,
-    xml, xml-dom, and zip extensions for PHP
-  * APCu module enabled and configured for PHP
-
-Deployment
-----------
-osTicket now supports bleeding-edge installations. The easiest way to
-install the software and track updates is to clone the public repository.
-Create a folder on you web server (using whatever method makes sense for
-you) and cd into it. Then clone the repository (the folder must be empty!):
-
-    git clone https://github.com/osTicket/osTicket
-
-And deploy the code into somewhere in your server's www root folder, for
-instance
-
-    cd osTicket
-    php manage.php deploy --setup /var/www/htdocs/osticket/
-
-Then you can configure your server if necessary to serve that folder, and
-visit the page and install osTicket as usual. Go ahead and even delete
-setup/ folder out of the deployment location when you’re finished. Then,
-later, you can fetch updates and deploy them (from the folder where you
-cloned the git repo into)
-
-    git pull
-    php manage.php deploy -v /var/www/htdocs/osticket/
-
-Upgrading
----------
-osTicket supports upgrading from 1.6-rc1 and later versions. As with any
-upgrade, strongly consider a backup of your attachment files, database, and
-osTicket codebase before embarking on an upgrade. Please review our [Upgrade
-Guide](https://docs.osticket.com/en/latest/Getting%20Started/Upgrade%20and%20Migration.html)
-or the [UPGRADING.txt file](UPGRADING.txt) for upgrade instructions.
-
-Help
-----
-Visit the [Documentation](https://docs.osticket.com/) or the
-[forum](https://forum.osticket.com/). And if you'd like professional help
-managing your osTicket installation,
-[commercial support](https://osticket.com/support/) is available.
-
-Contributing
-------------
-Create your own fork of the project and use
-[git-flow](https://github.com/nvie/gitflow) to create a new feature. Once
-the feature is published in your fork, send a pull request to begin the
-conversation of integrating your new feature into osTicket.
-
-### Localization
-[![Crowdin](https://badges.crowdin.net/osticket-official/localized.svg)](https://crowdin.com/project/osticket-official)
-
-The interface for osTicket is now completely translatable. Language packs
-are available on the [download page](https://osticket.com/download). If you
-do not see your language there, join the [Crowdin](https://crowdin.com/project/osticket-official)
-project and request to have your language added. Languages which reach 100%
-translated are are significantly reviewed will be made available on the
-osTicket download page.
-
-The software can also be translated in place in our [JIPT site](http://jipt.i18n.osticket.com).
-Once you have a Crowdin account, login and translate the software in your browser!
-
-Localizing strings in new code requires usage of a [few rules](setup/doc/i18n.md).
-
-License
--------
-osTicket is released under the GPL2 license. See the included LICENSE.txt
-file for the gory details of the General Public License.
-
-osTicket is supported by several magical open source projects including:
-
-  * [Font-Awesome](https://fontawesome.com/)
-  * [HTMLawed](https://www.bioinformatics.org/phplabware/internal_utilities/htmLawed)
-  * [jQuery dropdown](https://labs.abeautifulsite.net/jquery-dropdown/) (Project Deleted)
-  * [jsTimezoneDetect](https://pellepim.bitbucket.org/jstz/)
-  * [laminas-mail](https://github.com/laminas/laminas-mail)
-  * [mPDF](https://github.com/mpdf/mpdf)
-  * [PasswordHash](https://www.openwall.com/phpass/)
-  * [PEAR](https://pear.php.net/package/PEAR)
-  * [PEAR/Auth_SASL](https://pear.php.net/package/Auth_SASL)
-  * [PEAR/Mail](https://pear.php.net/package/mail)
-  * [PEAR/Net_SMTP](https://pear.php.net/package/Net_SMTP)
-  * [PEAR/Net_Socket](https://pear.php.net/package/Net_Socket)
-  * [PEAR/Serivces_JSON](https://pear.php.net/package/Services_JSON)
-  * [php-gettext](https://launchpad.net/php-gettext/)
-  * [phpseclib](https://phpseclib.sourceforge.net/)
-  * [Spyc](https://github.com/mustangostang/spyc)
+<div class="Box-sc-g0xbh4-0 bJMeLZ js-snippet-clipboard-copy-unpositioned" data-hpc="true"><article class="markdown-body entry-content container-lg" itemprop="text"><h1 tabindex="-1" dir="auto"><a id="user-content-osticket" class="anchor" aria-hidden="true" tabindex="-1" href="#osticket"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">osTicket工单系统</font></font></h1>
+<p dir="auto"><a href="https://osticket.com" rel="nofollow"><img height="80px" width="80px" src="/osTicket/osTicket/raw/develop/images/favicon.png" align="left" hspace="10" style="max-width: 100%;"></a></p>
+<p dir="auto"><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">osTicket</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">是一个广泛使用的开源支持工单系统。</font><font style="vertical-align: inherit;">它将通过电子邮件、电话和基于网络的表单创建的查询无缝集成到简单易用的多用户网络界面中。</font><font style="vertical-align: inherit;">在一个地方管理、组织和归档您的所有支持请求和响应，同时为您的客户提供他们应得的责任和响应。</font></font></p>
+<h2 tabindex="-1" dir="auto"><a id="user-content-how-osticket-works-for-you" class="anchor" aria-hidden="true" tabindex="-1" href="#how-osticket-works-for-you"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">osTicket 如何为您服务</font></font></h2>
+<ol dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">用户通过您的网站、电子邮件或电话创建工单</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">收到的工单将被保存并分配给代理</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">代理帮助您的用户解决他们的问题</font></font></li>
+</ol>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">osTicket 是成本较高且复杂的客户支持系统的有吸引力的替代方案；</font><font style="vertical-align: inherit;">简单、轻量、可靠、开源、基于网络且易于设置和使用。</font><font style="vertical-align: inherit;">最好的部分是，它是完全免费的。</font></font></p>
+<h2 tabindex="-1" dir="auto"><a id="user-content-requirements" class="anchor" aria-hidden="true" tabindex="-1" href="#requirements"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">要求</font></font></h2>
+<ul dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">运行 Microsoft® IIS 或 Apache 的 HTTP 服务器</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">PHP 版本 8.1 - 8.2（推荐 8.2）</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">PHP 的 mysqli 扩展</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">MySQL 数据库版本 5.5（或更高版本）</font></font></li>
+</ul>
+<h3 tabindex="-1" dir="auto"><a id="user-content-recommendations" class="anchor" aria-hidden="true" tabindex="-1" href="#recommendations"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">建议</font></font></h3>
+<ul dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">PHP 的 fileinfo、gd、gettext、imap、intl、json、mbstring、Zend OPcache、phar、xml、xml-dom 和 zip 扩展</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">为 PHP 启用并配置 APCu 模块</font></font></li>
+</ul>
+<h2 tabindex="-1" dir="auto"><a id="user-content-deployment" class="anchor" aria-hidden="true" tabindex="-1" href="#deployment"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">部署</font></font></h2>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">osTicket 现在支持前沿安装。</font><font style="vertical-align: inherit;">安装软件和跟踪更新的最简单方法是克隆公共存储库。</font><font style="vertical-align: inherit;">在您的网络服务器上创建一个文件夹（使用任何对您有意义的方法）并使用 cd 进入该文件夹。</font><font style="vertical-align: inherit;">然后克隆存储库（该文件夹必须为空！）：</font></font></p>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto"><pre class="notranslate"><code>git clone https://github.com/osTicket/osTicket
+</code></pre><div class="zeroclipboard-container">
+    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 tooltipped-no-delay d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="git clone https://github.com/osTicket/osTicket" tabindex="0" role="button">
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+    </clipboard-copy>
+  </div></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">例如，将代码部署到服务器 www 根文件夹中的某个位置</font></font></p>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto"><pre class="notranslate"><code>cd osTicket
+php manage.php deploy --setup /var/www/htdocs/osticket/
+</code></pre><div class="zeroclipboard-container">
+    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 tooltipped-no-delay d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="cd osTicket
+php manage.php deploy --setup /var/www/htdocs/osticket/" tabindex="0" role="button">
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+    </clipboard-copy>
+  </div></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">然后，如果需要，您可以配置服务器来提供该文件夹，并像往常一样访问该页面并安装 osTicket。</font><font style="vertical-align: inherit;">完成后，甚至可以从部署位置中删除 setup/ 文件夹。</font><font style="vertical-align: inherit;">然后，稍后，您可以获取更新并部署它们（从将 git 存储库克隆到的文件夹中）</font></font></p>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto"><pre class="notranslate"><code>git pull
+php manage.php deploy -v /var/www/htdocs/osticket/
+</code></pre><div class="zeroclipboard-container">
+    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 tooltipped-no-delay d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="git pull
+php manage.php deploy -v /var/www/htdocs/osticket/" tabindex="0" role="button">
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+    </clipboard-copy>
+  </div></div>
+<h2 tabindex="-1" dir="auto"><a id="user-content-upgrading" class="anchor" aria-hidden="true" tabindex="-1" href="#upgrading"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">升级中</font></font></h2>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">osTicket 支持从 1.6-rc1 及更高版本升级。</font><font style="vertical-align: inherit;">与任何升级一样，在开始升级之前，请强烈考虑备份附件文件、数据库和 osTicket 代码库。</font><font style="vertical-align: inherit;">请查看我们的</font></font><a href="https://docs.osticket.com/en/latest/Getting%20Started/Upgrade%20and%20Migration.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">升级指南</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+或</font></font><a href="/osTicket/osTicket/blob/develop/UPGRADING.txt"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">UPGRADING.txt 文件</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">以获取升级说明。</font></font></p>
+<h2 tabindex="-1" dir="auto"><a id="user-content-help" class="anchor" aria-hidden="true" tabindex="-1" href="#help"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">帮助</font></font></h2>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">访问</font></font><a href="https://docs.osticket.com/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">文档</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">或
+</font></font><a href="https://forum.osticket.com/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">论坛</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">如果您需要专业帮助来管理您的 osTicket 安装，
+</font><font style="vertical-align: inherit;">可以使用</font></font><a href="https://osticket.com/support/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">商业支持。</font></font></a><font style="vertical-align: inherit;"></font></p>
+<h2 tabindex="-1" dir="auto"><a id="user-content-contributing" class="anchor" aria-hidden="true" tabindex="-1" href="#contributing"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">贡献</font></font></h2>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">创建您自己的项目分支并使用
+</font></font><a href="https://github.com/nvie/gitflow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">git-flow</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">创建新功能。</font><font style="vertical-align: inherit;">一旦该功能在您的分叉中发布，请发送拉取请求以开始将新功能集成到 osTicket 中的对话。</font></font></p>
+<h3 tabindex="-1" dir="auto"><a id="user-content-localization" class="anchor" aria-hidden="true" tabindex="-1" href="#localization"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">本土化</font></font></h3>
+<p dir="auto"><a href="https://crowdin.com/project/osticket-official" rel="nofollow"><img src="https://camo.githubusercontent.com/1ffc5bd245ddbb6a545aecc5501b02b3f7cd3c2f7af7b7131573df3034170b7c/68747470733a2f2f6261646765732e63726f7764696e2e6e65742f6f737469636b65742d6f6666696369616c2f6c6f63616c697a65642e737667" alt="克罗丁" data-canonical-src="https://badges.crowdin.net/osticket-official/localized.svg" style="max-width: 100%;"></a></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">osTicket 的界面现在完全可翻译。</font></font><a href="https://osticket.com/download" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">下载页面</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">上提供了语言包</font><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">如果您在那里没有看到您的语言，请加入</font></font><a href="https://crowdin.com/project/osticket-official" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Crowdin</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+项目并请求添加您的语言。</font><font style="vertical-align: inherit;">达到 100% 翻译并经过严格审查的语言将在 osTicket 下载页面上提供。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"></font><a href="http://jipt.i18n.osticket.com" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">该软件也可以在我们的JIPT 网站</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">上进行翻译</font><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">拥有 Crowdin 帐户后，请登录并在浏览器中翻译该软件！</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在新代码中本地化字符串需要使用一些</font></font><a href="/osTicket/osTicket/blob/develop/setup/doc/i18n.md"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">规则</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font></font></p>
+<h2 tabindex="-1" dir="auto"><a id="user-content-license" class="anchor" aria-hidden="true" tabindex="-1" href="#license"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">执照</font></font></h2>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">osTicket 是根据 GPL2 许可证发布的。</font><font style="vertical-align: inherit;">有关通用公共许可证的详细信息，请参阅随附的 LICENSE.txt 文件。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">osTicket 由多个神奇的开源项目支持，包括：</font></font></p>
+<ul dir="auto">
+<li><a href="https://fontawesome.com/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">字体真棒</font></font></a></li>
+<li><a href="https://www.bioinformatics.org/phplabware/internal_utilities/htmLawed" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">HTML法律</font></font></a></li>
+<li><a href="https://labs.abeautifulsite.net/jquery-dropdown/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">jQuery 下拉菜单</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">（项目已删除）</font></font></li>
+<li><a href="https://pellepim.bitbucket.org/jstz/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">js时区检测</font></font></a></li>
+<li><a href="https://github.com/laminas/laminas-mail"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">层状邮件</font></font></a></li>
+<li><a href="https://github.com/mpdf/mpdf"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">mPDF</font></font></a></li>
+<li><a href="https://www.openwall.com/phpass/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">密码哈希值</font></font></a></li>
+<li><a href="https://pear.php.net/package/PEAR" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">梨</font></font></a></li>
+<li><a href="https://pear.php.net/package/Auth_SASL" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">梨/Auth_SASL</font></font></a></li>
+<li><a href="https://pear.php.net/package/mail" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">梨/邮件</font></font></a></li>
+<li><a href="https://pear.php.net/package/Net_SMTP" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">PEAR/Net_SMTP</font></font></a></li>
+<li><a href="https://pear.php.net/package/Net_Socket" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">PEAR/Net_Socket</font></font></a></li>
+<li><a href="https://pear.php.net/package/Services_JSON" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">PEAR/Services_JSON</font></font></a></li>
+<li><a href="https://launchpad.net/php-gettext/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">php-gettext</font></font></a></li>
+<li><a href="https://phpseclib.sourceforge.net/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">phpseclib</font></font></a></li>
+<li><a href="https://github.com/mustangostang/spyc"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">SPYC库</font></font></a></li>
+</ul>
+</article></div>
